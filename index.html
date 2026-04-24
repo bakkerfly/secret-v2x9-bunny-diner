@@ -1,588 +1,95 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <link rel="icon" type="image/png" href="images/other/logo_suba.png">
-  <meta name="robots" content="noindex, nofollow">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>バニーダイナー 公式WEB | subadiner</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
-
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family:"Noto Sans JP", sans-serif;
-  background:#0a0a0a;
-  color:#fff;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* HEADER */
-header {
-  position:fixed;
-  top:0;
-  width:100%;
-  height:70px;
-  background:rgba(0,0,0,0.7);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 40px;
-  z-index:1000;
-}
-
-/* ロゴリンク自体の位置を固定 */
-#topLink {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-header img {
-  height: 40px;
-  cursor: pointer; /* マウスを乗せたら指の形にする */
-}
-
-nav a {
-  margin-left:20px;
-  color:#fff;
-  text-decoration:none;
-}
-
-section { scroll-margin-top:80px; }
-
-/* HERO */
-/* heroセクションを基準位置にする */
-.hero {
-  position: relative; /* 子要素のabsoluteの基準にする */
-  height: 100vh;
-  background: url("images/other/back.png") center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 左上のロゴコンテナのスタイル */
-.hero-corner-logos {
-  position: absolute;
-  top: 90px;    /* ヘッダー(70px)に被らないよう少し余裕を持たせる */
-  left: 40px;   /* ヘッダーのpaddingと合わせると綺麗です */
-  display: flex;
-  gap: 15px;    /* 画像同士の間隔 */
-  z-index: 10;
-}
-
-.hero-corner-logos img {
-  height: 80px; /* 小さめのアイコンとして表示（お好みで調整してください） */
-  width: auto;
-  opacity: 1.0; /* 少し透かせて背景に馴染ませる */
-}
-
-/* モバイル対応（画面が狭い時に位置を調整） */
-@media (max-width: 700px) {
-  .hero-corner-logos {
-    top: 80px;
-    left: 20px;
-  }
-  .hero-corner-logos img {
-    height: 20px;
-  }
-}
-
-.hero-content {
-  text-align: center;
-}
-
-.logo {
-  width: 500px;        /* ←大きく */
-  max-width: 90%;
-  margin-top: 450px;  /* ←下にずらす */
-}
-
-.release {
-  margin-top: 10px;
-  font-size: 2.5rem;
-  opacity: 0.95;
-}
-
-.store-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 60px 0;          /* ←セクション的な余白 */
-  background: #252333;      /* ←背景揃える */
-}
-
-.store-btn {
-  width: 220px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.store-btn:hover {
-  transform: scale(1.05);
-}
-
-.steam-btn {
-  margin-top: 20px;
-  width: 200px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.steam-btn:hover {
-  transform: scale(1.05);
-}
-
-/* SECTION */
-.section {
-  padding:100px 10%;
-  text-align:center;
-}
-
-.section h2 {
-  font-family:"Noto Serif JP", serif;
-  margin-bottom:30px;
-}
-
-/* CHARACTER */
-.character-selector {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:30px;
-}
-
-.character-text p {
-  white-space: pre-line;
-}
-
-.character-selector button {
-  padding:6px 12px;
-  border:1px solid #ffffff;
-  background:transparent;
-  color:#ffffff;
-  cursor:pointer;
-  transition: 0.3s;
-}
-
-.character-selector button.active {
-  /* --c-color（固有色）と黒（#000）を混ぜて暗くする */
-  background: color-mix(in srgb, var(--c-color), #000 40%);
-  border-color: var(--c-color); /* 枠線は固有色のままでも綺麗です */
-  color: #ffffff;
-}
-
-.character-selector button:hover:not(.active) {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-
-/* 表示 */
-.character-display {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap; /* レスポンシブ対応 */
-}
-
-.character-image img {
-  width:300px;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-.character-text {
-  max-width:300px;
-  text-align:left;
-}
-
-.character-text h3 {
-  font-size: 2.2rem;
-  letter-spacing: 0.15em;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-/* 下線演出 */
-.character-text h3::after {
-  content: "";
-  display: block;
-  width: 60%;
-  height: 2px;
-  margin-top: 8px;
-  background: linear-gradient(to right, var(--char-color), transparent);
-}
-
-/* 画面が細いときは縦並び */
-@media (max-width: 700px) {
-  .character-display {
-    flex-direction:column;
-  }
-
-  .character-text {
-    text-align:center;
-  }
-}
-
-/* GALLERY */
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-  gap:20px;
-}
-
-.gallery img {
-  width:100%;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.gallery img:hover {
-  transform:scale(1.03);
-  opacity:0.85;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  padding: 20px;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* MODAL */
-.modal {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-}
-
-.modal img {
-  max-width:100%;
-  max-height:100%;
-}
-
-.modal.active {
-  display:flex;
-}
-
-footer {
-  text-align:center;
-  padding:40px;
-  opacity:0.5;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <!-- ▼ ロゴ画像ここ -->
-  <a id="topLink" style="cursor: pointer;">
-  <img src="images\other\logo_bunnydiner.png" alt="logo">
-  </a>
-
-  <nav>
-    <a href="#about">ABOUT</a>
-    <a href="#character">CHARACTER</a>
-    <a href="#gallery">GALLERY</a>
-  </nav>
-</header>
-
-
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-corner-logos">
-      <img src="images/other/switch_logo.png" alt="Switch Logo">
-      <img src="images/other/steam_logo.png" alt="Steam Logo">
-    </div>
-
-    <!-- ▼ タイトルロゴ -->
-    <img src="images\other\logo_bunnydiner.png" class="logo">
-
-    <!-- ▼ 発売日 -->
-    <p class="release">2826.04.01 RELEASE</p>
-
-  </div>
-</section>
-
-<!-- ▼ ストアボタン（セクション外） -->
-<div class="store-buttons">
-  <a href="#" target="_blank">
-    <img src="images/other/switch.png" class="store-btn">
-  </a>
-
-  <a href="https://store.steampowered.com/" target="_blank">
-    <img src="images/other/steam.png" class="store-btn">
-  </a>
-</div>
-
-<section id="about" class="section">
-  <h2>ABOUT</h2>
-  <p>「誕生日プレゼント？バニー改変でお願いします！」<br>
-    その一言で始まった一夜の夢の競演<br>
-    なんか書く
-  </p>
-</section>
-
-<section id="character" class="section">
-  <h2>CHARACTER</h2>
-
-  <!-- ▼ キャラクター選択（見出しの下・画像の上） -->
-  <div class="character-selector" id="selector"></div>
-
-  <div class="character-display">
-
-    <!-- ▼ キャラクター画像表示ここ（バストアップA） -->
-    <div class="character-image">
-      <img id="charImage">
-    </div>
-
-    <!-- ▼ キャラクター名・紹介文 -->
-    <div class="character-text">
-      <h3 id="charName"></h3>
-      <p id="charDesc"></p>
-    </div>
-
-  </div>
-</section>
-
-<section id="gallery" class="section">
-  <h2>GALLERY</h2>
-
-  <div class="gallery">
-    <!-- ▼ ギャラリー画像ここ -->
-    <img src="images/gallery/happybirthday.png" class="gallery-img">
-    <img src="images/gallery/fensingu.png" class="gallery-img">
-    <img src="https://picsum.photos/400/300?3" class="gallery-img">
-    <img src="https://picsum.photos/400/300?4" class="gallery-img">
-    <img src="https://picsum.photos/400/300?5" class="gallery-img">
-    <img src="https://picsum.photos/400/300?6" class="gallery-img">
-  </div>
-
-</section>
-
-<!-- モーダル -->
-<div class="modal" id="modal">
-  <span class="prev">‹</span>
-  <img id="modalImg">
-  <span class="next">›</span>
-</div>
-
-<footer>© BunnyDiner</footer>
-
-<script>
-// ロゴをクリックした時に最上部へスムーズにスクロールする
-document.getElementById("topLink").addEventListener("click", (e) => {
-  e.preventDefault(); // デフォルトの動作をキャンセル
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth" // スーッと戻る動き
-  });
-});
-
-const characters = [
-  {
-    name:"あらかわ",
-    color:"#ffe96b",
-    desc:"明るさ全振り、でも話題はなぜかちょっと危険。\nかわいい女の子を見つけるとテンション急上昇、ブレーキはほぼ未搭載。\n見た目はふわっとしてるのに、動きは常に騒がしくて落ち着きゼロ。",
-    bust:"images/characters/arakawa_bust.png", // ▼ バストアップ画像A
-    full:"images/characters/arakawa_full.png"  // ▼ 全身画像B
-  },
-  {
-    name:"しろまぐろ",
-    color:"#ff4d82",
-    desc:"手作りの青いリボンに想いを込めた、自己評価低めの褒め上手。\n一度スイッチが入ると賞賛が止まらないのに、本人は「コミュ障だから…」と逃げ腰。\n恥ずかしがりで、そういう話題には即フリーズ。距離が縮まるほどにギャップが露呈する、不器用系ヒロイン。",
-    bust:"images/characters/shiromaguro_full.png",
-    full:"images/characters/shiromaguro_full.png"
-  },
-  {
-    name:"しーな",
-    color:"#af4dff",
-    desc:"大人の余裕、完璧な立ち振る舞い。その裏にある“秘密”は決して見せない。\n水着を着ないのはタトゥーが入っているからだと話しているが…？\n黒猫を飼っているらしい。",
-    bust:"images/characters/shina_bust.png",
-    full:"images/characters/shina_bust.png"
-  },
-  {
-    name:"かます",
-    color:"#684dff",
-    desc:"勝負を全力で楽しむ関西人。\n落ち着いて見えるが、リアクションだけは誤魔化せない。\n隙を突かれて、なぜかいじられ役に回ってしまう。",
-    bust:"images/characters/kamasu_bust.png",
-    full:"images/characters/kamasu_full.png"
-  },
-  {
-    name:"かぶらや",
-    color:"#940707",
-    desc:"みんなのマスコット的存在。\n中身は狐面をしたイケメンだとまことしやかにささやかれている。",
-    bust:"images/characters/kaburaya_bust.png", // ▼ バストアップ画像A
-    full:"images/characters/kaburaya_full2.png"  // ▼ 全身画像B
-  }
-];
-
-let current = 0;
-const selector = document.getElementById("selector");
-
-function renderButtons(){
-  selector.innerHTML="";
-  characters.forEach((c,i)=>{
-    const btn=document.createElement("button");
-    btn.textContent=c.name;
-    if(i===current) btn.classList.add("active");
-
-    btn.onclick=()=>{
-      current=i;
-      updateCharacter();
-      renderButtons();
-    };
-
-    selector.appendChild(btn);
-  });
-}
-
-function updateCharacter(){
-  const c=characters[current];
-  document.getElementById("charImage").src=c.bust;
-  document.getElementById("charName").textContent=c.name;
-  document.getElementById("charDesc").textContent=c.desc;
-}
-
-renderButtons();
-updateCharacter();
-
-/* キャラクター選択時の色 */
-function renderButtons(){
-  selector.innerHTML="";
-  characters.forEach((c, i) => {
-    const btn = document.createElement("button");
-    btn.textContent = c.name;
-    
-    // キャラクターの固有色をCSS変数 "--c-color" にセット
-    btn.style.setProperty('--c-color', c.color);
-
-    if(i === current) btn.classList.add("active");
-
-    btn.onclick = () => {
-      current = i;
-      updateCharacter();
-      renderButtons();
-    };
-
-    selector.appendChild(btn);
-  });
-}
-
-/* モーダル */
-const modal=document.getElementById("modal");
-const modalImg=document.getElementById("modalImg");
-const charImage=document.getElementById("charImage");
-/* ギャラリークリック対応 */
-const galleryImages = Array.from(document.querySelectorAll(".gallery-img"));
-let currentIndex = 0;
-let isCharacterModal = false; // キャラ全身表示かギャラリー表示かを判別
-
-// ギャラリー画像クリック時
-galleryImages.forEach((img, index) => {
-  img.onclick = (e) => {
-    e.stopPropagation(); // 親へのイベント伝播を止める
-    isCharacterModal = false;
-    currentIndex = index;
-    openModal(img.src);
-  };
-});
-
-// キャラクター画像クリック時
-charImage.onclick = (e) => {
-  e.stopPropagation();
-  isCharacterModal = true;
-  openModal(characters[current].full);
-};
-
-function openModal(src) {
-  modal.classList.add("active");
-  modalImg.src = src;
-  // キャラ表示のときは矢印を隠す（必要であれば）
-  const arrows = document.querySelectorAll(".prev, .next");
-  arrows.forEach(a => a.style.display = isCharacterModal ? "none" : "block");
-}
-
-// モーダル本体（背景）をクリックしたら閉じる
-modal.onclick = (e) => {
-  // クリックされたのが背景(modal)そのものだった場合だけ閉じる
-  if (e.target === modal) {
-    modal.classList.remove("active");
-  }
-};
-
-// 画像そのものをクリックしても閉じないようにする（好みで変更可）
-modalImg.onclick = (e) => {
-  e.stopPropagation();
-};
-
-// 矢印ボタンの処理
-document.querySelector(".prev").onclick = (e) => {
-  e.stopPropagation();
-  if (isCharacterModal) return;
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  modalImg.src = galleryImages[currentIndex].src;
-};
-
-document.querySelector(".next").onclick = (e) => {
-  e.stopPropagation();
-  if (isCharacterModal) return;
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  modalImg.src = galleryImages[currentIndex].src;
-};
-
-// キーボード操作
-document.addEventListener("keydown", (e) => {
-  if (!modal.classList.contains("active") || isCharacterModal) return;
-
-  if (e.key === "ArrowRight") {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-  } else if (e.key === "ArrowLeft") {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  } else if (e.key === "Escape") {
-    modal.classList.remove("active");
-    return;
-  }
-  modalImg.src = galleryImages[currentIndex].src;
-});
-
-
-
-function updateCharacter(){
-  const c=characters[current];
-
-  document.getElementById("charImage").src=c.bust;
-  document.getElementById("charName").textContent=c.name;
-  document.getElementById("charDesc").textContent=c.desc;
-
-  // ▼ 色を反映
-  document.getElementById("charName").style.setProperty("--char-color", c.color);
-}
-
-
-
-
-</script>
-
-</body>
+    <head>
+        <link rel="icon" type="image/png" href="images/other/logo_suba.png">
+        <meta name="robots" content="noindex, nofollow">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>バニーダイナー 公式WEB | subadiner</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a id="topLink" style="cursor: pointer;">
+                <img src="images/other/logo_bunnydiner.png" alt="logo">
+            </a>
+            <nav>
+                <a href="#about">ABOUT</a>
+                <a href="#character">CHARACTER</a>
+                <a href="#gallery">GALLERY</a>
+            </nav>
+        </header>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-corner-logos">
+                    <img src="images/other/switch_logo.png" alt="Switch Logo">
+                    <img src="images/other/steam_logo.png" alt="Steam Logo">
+                </div>
+                <img src="images/other/logo_bunnydiner.png" class="logo" alt="Bunny Diner Logo">
+                <p class="release">2826.04.01 RELEASE</p>
+            </div>
+        </section>
+        <div class="store-buttons">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="images/other/switch.png" class="store-btn" alt="Nintendo Switch Store">
+            </a>
+            <a href="https://store.steampowered.com/" target="_blank" rel="noopener noreferrer">
+                <img src="images/other/steam.png" class="store-btn" alt="Steam Store">
+            </a>
+        </div>
+        <section id="about" class="section reveal-on-scroll">
+            <h2>ABOUT</h2>
+            <p>
+                「誕生日プレゼント？バニー改変でお願いします！」<br>
+                その一言で始まった一夜の夢の競演<br>なんか書く
+
+            </p>
+        </section>
+        <section id="character" class="section reveal-on-scroll">
+            <h2>CHARACTER</h2>
+            <div class="character-selector" id="selector"></div>
+            <div class="character-display">
+                <div class="character-image">
+                    <img id="charImage" alt="Character image">
+                </div>
+                <div class="character-text">
+                    <h3 id="charName"></h3>
+                    <p id="charDesc"></p>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="section reveal-on-scroll">
+            <h2>GALLERY</h2>
+            <div class="gallery">
+                <img src="images/gallery/fensingu.webp" class="gallery-img" alt="Gallery image 1" loading="lazy" decoding="async">
+                <img src="images/gallery/happybirthday.webp" class="gallery-img" alt="Gallery image 2" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_21-09-46.516_3840x2160.webp" class="gallery-img" alt="Gallery image 3" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_22-15-22.735_1440x2560.webp" class="gallery-img" alt="Gallery image 4" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_22-24-46.899_2560x1440.webp" class="gallery-img" alt="Gallery image 5" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_22-25-39.588_1440x2560.webp" class="gallery-img" alt="Gallery image 6" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_22-25-43.053_1440x2560.webp" class="gallery-img" alt="Gallery image 7" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_22-47-38.490_2560x1440.webp" class="gallery-img" alt="Gallery image 8" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-24-27.384_2560x1440.webp" class="gallery-img" alt="Gallery image 9" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-25-04.365_2560x1440.webp" class="gallery-img" alt="Gallery image 10" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-25-12.587_3840x2160.webp" class="gallery-img" alt="Gallery image 11" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-27-51.926_2560x1440.webp" class="gallery-img" alt="Gallery image 12" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-49-53.042_3840x2160.webp" class="gallery-img" alt="Gallery image 13" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-52-52.639_3840x2160.webp" class="gallery-img" alt="Gallery image 14" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-18_23-53-18.838_1920x1080.webp" class="gallery-img" alt="Gallery image 15" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-19_00-06-15.623_2560x1440.webp" class="gallery-img" alt="Gallery image 16" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-19_00-16-13.484_2560x1440.webp" class="gallery-img" alt="Gallery image 17" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-19_01-01-14.074_3840x2160.webp" class="gallery-img" alt="Gallery image 18" loading="lazy" decoding="async">
+                <img src="images/gallery/VRChat_2026-04-19_03-37-00.593_3840x2160.webp" class="gallery-img" alt="Gallery image 19" loading="lazy" decoding="async">
+            </div>
+        </section>
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modalClose" aria-label="モーダルを閉じる">×</button>
+            <span class="prev">‹</span>
+            <img id="modalImg" alt="Expanded image">
+            <span class="next">›</span>
+        </div>
+        <footer>© BunnyDiner</footer>
+    </body>
 </html>
