@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       full: "images/characters/kamasu_full.png"
     },
     {
+      name: "エナガ",
+      color: "#c0b5aa",
+      desc: "言葉はほとんどない。ただ視線と仕草だけで場を支配する。\n洗練された見た目に、どこか抜けたユーモア。\n近くにいるだけで意識させられる、静かな存在。",
+      bust: "images/characters/enaga_bust.png",
+      full: "images/characters/enaga_full.png"
+    },    
+    {
       name: "かぶらや",
       color: "#940707",
       desc: "みんなのマスコット的存在。\n中身は狐面をしたイケメンだとまことしやかにささやかれている。",

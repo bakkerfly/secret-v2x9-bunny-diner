@@ -6,3 +6,5 @@
 * CSSをstyle.cssに分離
 * スクリプトをscript.jsに分離
 * 一部png画像をwebpに変換
+
+* キャラクター追加
