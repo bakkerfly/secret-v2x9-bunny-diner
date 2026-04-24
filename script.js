@@ -50,6 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
       full: "images/characters/enaga_full.png"
     },    
     {
+      name: "ランシア",
+      color: "#57e2d7",
+      desc: "気づいたときにはそこにいた。\n誰も知らない謎の存在。\n今日も店内を見つめている。",
+      bust: "images/characters/ransia_bust.png",
+      full: "images/characters/ransia_full.png"
+    }, 
+    {
       name: "かぶらや",
       color: "#940707",
       desc: "みんなのマスコット的存在。\n中身は狐面をしたイケメンだとまことしやかにささやかれている。",
