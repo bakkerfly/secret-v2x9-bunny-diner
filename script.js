@@ -13,6 +13,61 @@ document.addEventListener("DOMContentLoaded", () => {
   const galleryImages = Array.from(document.querySelectorAll(".gallery-img"));
   const revealSections = Array.from(document.querySelectorAll(".reveal-on-scroll"));
 
+  const heroSection = document.querySelector(".hero");
+  const mainLogoContainer = document.querySelector(".main-logo-container");
+
+  // 切り替えたい画像のリストとロゴの位置設定
+  const heroBackgrounds = [
+    { url: "images/other/back.png",  logoTop: "min(55vh, 550px)", logoLeft: "auto" },
+    { url: "images/other/back2.png", logoTop: "min(52vh, 520px)", logoLeft: "10px" }, // 左寄せ
+    { url: "images/other/back3.png", logoTop: "min(55vh, 550px)", logoLeft: "auto" },
+    { url: "images/other/back4.png", logoTop: "min(55vh, 550px)", logoLeft: "auto" }
+  ];
+
+  let currentHeroIndex = 0;
+
+  // 初期状態をセットする関数（起動時の位置ズレ防止）
+  function setInitialHeroStyle() {
+    const firstBg = heroBackgrounds[0];
+    heroSection.style.backgroundImage = `url(${firstBg.url})`;
+    
+    // 変更前: mainLogoContainer.style.marginTop = firstBg.logoTop;
+    // 変更後: CSS変数に値をセットする
+    mainLogoContainer.style.setProperty('--dynamic-mt', firstBg.logoTop);
+    
+    mainLogoContainer.style.alignItems = (firstBg.logoLeft === "auto") ? "center" : "flex-start";
+    mainLogoContainer.style.paddingLeft = (firstBg.logoLeft === "auto") ? "0" : firstBg.logoLeft;
+    
+    mainLogoContainer.classList.remove("is-hidden");
+  }
+
+  function rotateHeroBackground() {
+    mainLogoContainer.classList.add("is-hidden");
+
+    setTimeout(() => {
+      currentHeroIndex = (currentHeroIndex + 1) % heroBackgrounds.length;
+      const nextBg = heroBackgrounds[currentHeroIndex];
+
+      heroSection.style.backgroundImage = `url(${nextBg.url})`;
+      
+      // 変更前: mainLogoContainer.style.marginTop = nextBg.logoTop;
+      // 変更後: CSS変数に値をセットする
+      mainLogoContainer.style.setProperty('--dynamic-mt', nextBg.logoTop);
+      
+      mainLogoContainer.style.alignItems = (nextBg.logoLeft === "auto") ? "center" : "flex-start";
+      mainLogoContainer.style.paddingLeft = (nextBg.logoLeft === "auto") ? "0" : nextBg.logoLeft;
+
+      setTimeout(() => {
+        mainLogoContainer.classList.remove("is-hidden");
+      }, 1200); 
+    }, 600); 
+  }
+
+  // 実行
+  setInitialHeroStyle();
+  setInterval(rotateHeroBackground, 6000);
+
+
   const characters = [
     {
       name: "あらかわ",
@@ -48,7 +103,21 @@ document.addEventListener("DOMContentLoaded", () => {
       desc: "言葉はほとんどない。ただ視線と仕草だけで場を支配する。\n洗練された見た目に、どこか抜けたユーモア。\n近くにいるだけで意識させられる、静かな存在。",
       bust: "images/characters/enaga_bust.png",
       full: "images/characters/enaga_full.png"
+    },  
+    {
+      name: "うましかちょう",
+      color: "#ac3120",
+      desc: "自分で紹介文を書くのは勘弁してください",
+      bust: "images/characters/bakkerfly_bust.png",
+      full: "images/characters/bakkerfly_full.png"
     },    
+    {
+      name: "スバル",
+      color: "#4260c2",
+      desc: "すべてはここから始まった。\n誕生日を最も有効活用したことで知られる。",
+      bust: "images/characters/subaru_bust.png",
+      full: "images/characters/subaru_full.png"
+    }, 
     {
       name: "ランシア",
       color: "#57e2d7",
@@ -61,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#940707",
       desc: "みんなのマスコット的存在。\n中身は狐面をしたイケメンだとまことしやかにささやかれている。",
       bust: "images/characters/kaburaya_bust.png",
-      full: "images/characters/kaburaya_full2.png"
+      full: "images/characters/kaburaya_full.png"
     }
   ];
 
