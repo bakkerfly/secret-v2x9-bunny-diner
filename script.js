@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "しろまぐろ",
       color: "#ff4d82",
-      desc: "手作りの青いリボンに想いを込めた、自己評価低めの褒め上手。\n一度スイッチが入ると賞賛が止まらないのに、本人は「コミュ障だから…」と逃げ腰。\n恥ずかしがりで、そういう話題には即フリーズ。距離が縮まるほどにギャップが露呈する、不器用系ヒロイン。",
+      desc: "手作りの青いリボンに想いを込めた、自己評価低めの褒め上手。\n一度スイッチが入ると賞賛が止まらないのに、本人は「コミュ障だから…」と逃げ腰。\n恥ずかしがりで、そういう話題には即フリーズ。",
       bust: "images/characters/shiromaguro_bust.png",
       full: "images/characters/shiromaguro_full.png"
     },
@@ -106,11 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
     },  
     {
       name: "うましかちょう",
-      color: "#ac3120",
+      color: "#ac5320",
       desc: "自分で紹介文を書くのは勘弁してください",
       bust: "images/characters/bakkerfly_bust.png",
       full: "images/characters/bakkerfly_full.png"
-    },    
+    },   
+    {
+      name: "ゆっきー",
+      color: "#e8adee",
+      desc: "穏やかな話し方で安心感を与えるタイプ。\nただし声量だけは別問題で、意図せず存在感が強い。\nそして酔うと制御不能になる。",
+      bust: "images/characters/yukki_bust.png",
+      full: "images/characters/yukki_full.png"
+    }, 
     {
       name: "スバル",
       color: "#4260c2",
