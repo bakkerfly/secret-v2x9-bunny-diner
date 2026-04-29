@@ -103,10 +103,24 @@ document.addEventListener("DOMContentLoaded", () => {
       desc: "言葉はほとんどない。ただ視線と仕草だけで場を支配する。\n洗練された見た目に、どこか抜けたユーモア。\n近くにいるだけで意識させられる、静かな存在。",
       bust: "images/characters/enaga_bust.png",
       full: "images/characters/enaga_full.png"
+    }, 
+    {
+      name: "ケセド",
+      color: "#c43232e8",
+      desc: "まだ",
+      bust: "images/characters/chesed_bust.png",
+      full: "images/characters/chesed_full.png"
+    },  
+    {
+      name: "パッキー",
+      color: "#a13498",
+      desc: "まだ",
+      bust: "images/characters/pakkii_bust.png",
+      full: "images/characters/pakkii_full.png"
     },  
     {
       name: "うましかちょう",
-      color: "#ac5320",
+      color: "#ec1c00",
       desc: "自分で紹介文を書くのは勘弁してください",
       bust: "images/characters/bakkerfly_bust.png",
       full: "images/characters/bakkerfly_full.png"
@@ -119,11 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
       full: "images/characters/yukki_full.png"
     }, 
     {
-      name: "スバル",
-      color: "#4260c2",
-      desc: "すべてはここから始まった。\n誕生日を最も有効活用したことで知られる。",
-      bust: "images/characters/subaru_bust.png",
-      full: "images/characters/subaru_full.png"
+      name: "うぇざー",
+      color: "#ecdd87",
+      desc: "まだ",
+      bust: "images/characters/weather_bust.png",
+      full: "images/characters/weather_full.png"
     }, 
     {
       name: "ランシア",
@@ -133,8 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
       full: "images/characters/ransia_full.png"
     }, 
     {
+      name: "スバル",
+      color: "#4260c2",
+      desc: "すべてはここから始まった。\n誕生日を最も有効活用したことで知られる。",
+      bust: "images/characters/subaru_bust.png",
+      full: "images/characters/subaru_full.png"
+    }, 
+    {
       name: "かぶらや",
-      color: "#940707",
+      color: "#6d0c0c",
       desc: "みんなのマスコット的存在。\n中身は狐面をしたイケメンだとまことしやかにささやかれている。",
       bust: "images/characters/kaburaya_bust.png",
       full: "images/characters/kaburaya_full.png"
