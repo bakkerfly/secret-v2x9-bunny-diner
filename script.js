@@ -72,35 +72,44 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "あらかわ",
       color: "#ffe96b",
-      desc: "明るさ全振り、でも話題はなぜかちょっと危険。\nかわいい女の子を見つけるとテンション急上昇、ブレーキはほぼ未搭載。\n見た目はふわっとしてるのに、動きは常に騒がしくて落ち着きゼロ。",
+      desc: `バニーダイナーの"(自称)元気担当"。
+      黙っていれば可愛いが、ひとたび話し始めると止まらない暴走列車になってしまう。特にえっちな話題に目がなく、かわいい女の子が大好き。`,
       bust: "images/characters/arakawa_bust.png",
       full: "images/characters/arakawa_full.png"
     },
     {
       name: "しろまぐろ",
       color: "#ff4d82",
-      desc: "手作りの青いリボンに想いを込めた、自己評価低めの褒め上手。\n一度スイッチが入ると賞賛が止まらないのに、本人は「コミュ障だから…」と逃げ腰。\n恥ずかしがりで、そういう話題には即フリーズ。",
+      desc: `手作りの青いリボンがトレードマーク。
+      褒め上手で褒められ下手、お喋り上手の自称コミュ障。褒められると恥ずかしがる姿に心を掴まれたお客さんは数知れず。えっちな話題が苦手な姿にもそそられるお客さんは多いらしい……。`,
       bust: "images/characters/shiromaguro_bust.png",
       full: "images/characters/shiromaguro_full.png"
     },
     {
       name: "しーな",
       color: "#af4dff",
-      desc: "大人の余裕、完璧な立ち振る舞い。その裏にある“秘密”は決して見せない。\n水着を着ないのはタトゥーが入っているからだと話しているが…？\n黒猫を飼っているらしい。",
+      desc: `バニーダイナーのみんなの"お姉さん"。
+      キャスト内でも1、2を争うほどえっちな見た目でみんなを惑わせている。
+      第一印象とは異なり店内でも随一の常識人で、お客さんの真面目な相談にのることもしばしば……。
+      何故か水着を着たがらないが噂によるとなにやら不思議なタトゥーが入っているだとか……？`,
       bust: "images/characters/shina_bust.png",
       full: "images/characters/shina_full.png"
     },
     {
       name: "かます",
       color: "#684dff",
-      desc: "勝負を全力で楽しむ関西人。\n落ち着いて見えるが、リアクションだけは誤魔化せない。\n隙を突かれて、なぜかいじられ役に回ってしまう。",
+      desc: `何事にも真剣勝負がモットー。
+      普段は落ち着いた言動を心がけているが、ふとした時につい関西の血が暴れてしまう上、その度に多方面からいじられている。ボケが多いバニーだーないなーの中の数少ないツッコミだが、時々様子のおかしい言動が見られる。
+      様々なジャンルのゲームが好きでビリヤードから放置ゲームまで網羅している。`,
       bust: "images/characters/kamasu_bust.png",
       full: "images/characters/kamasu_full.png"
     },
     {
       name: "エナガ",
       color: "#c0b5aa",
-      desc: "言葉はほとんどない。ただ視線と仕草だけで場を支配する。\n洗練された見た目に、どこか抜けたユーモア。\n近くにいるだけで意識させられる、静かな存在。",
+      desc: `動きで魅せる言葉少ないバニー。
+      普段は無口で視線や動きだけでお客さんを魅了する、蠱惑的なお姉さん。
+      しかし、気まぐれに言葉を発することもあり、その時は少し茶目な雰囲気も感じ取れるそのギャップにますます魅了されてしまう。`,
       bust: "images/characters/enaga_bust.png",
       full: "images/characters/enaga_full.png"
     }, 
@@ -128,7 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "ゆっきー",
       color: "#e8adee",
-      desc: "穏やかな話し方で安心感を与えるタイプ。\nただし声量だけは別問題で、意図せず存在感が強い。\nそして酔うと制御不能になる。",
+      desc: `まったりとした話し方がチャームポイント。
+      ファッションに精通しており、その時々の流行アイテムや流行色などについて詳しく教えてくれる。
+      お酒好きのため、お酒の話にも楽しそうに反応してくれる。
+      しかしお酒が回りきると原型がないほど砕け切った話し方になってしまうため、コミュニケーションが難しいことも……。`,
       bust: "images/characters/yukki_bust.png",
       full: "images/characters/yukki_full.png"
     }, 
@@ -142,21 +154,25 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "ランシア",
       color: "#57e2d7",
-      desc: "気づいたときにはそこにいた。\n誰も知らない謎の存在。\n今日も店内を見つめている。",
+      desc: `気づいたときにはそこにいた。
+      誰も知らない謎の存在。
+      今日も店内を見つめている。`,
       bust: "images/characters/ransia_bust.png",
       full: "images/characters/ransia_full.png"
     }, 
     {
       name: "スバル",
       color: "#4260c2",
-      desc: "すべてはここから始まった。\n誕生日を最も有効活用したことで知られる。",
+      desc: `すべてはここから始まった。
+      誕生日を最も有効活用したことで知られる。`,
       bust: "images/characters/subaru_bust.png",
       full: "images/characters/subaru_full.png"
     }, 
     {
       name: "かぶらや",
       color: "#6d0c0c",
-      desc: "みんなのマスコット的存在。\n中身は狐面をしたイケメンだとまことしやかにささやかれている。",
+      desc: `みんなのマスコット的存在。
+      中身は狐面をしたイケメンだとまことしやかにささやかれている。`,
       bust: "images/characters/kaburaya_bust.png",
       full: "images/characters/kaburaya_full.png"
     }
