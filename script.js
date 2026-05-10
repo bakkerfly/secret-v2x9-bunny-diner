@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heroSection = document.querySelector(".hero");
   const mainLogoContainer = document.querySelector(".main-logo-container");
+  const mainLogo = document.querySelector(".logo");
 
   // 切り替えたい画像のリストとロゴの位置設定
   const heroBackgrounds = [
-    { url: "images/other/back.png",  logoTop: "min(55vh, 550px)", logoLeft: "auto" },
-    { url: "images/other/back2.png", logoTop: "min(52vh, 520px)", logoLeft: "10px" }, // 左寄せ
-    { url: "images/other/back3.png", logoTop: "min(55vh, 550px)", logoLeft: "auto" },
-    { url: "images/other/back4.png", logoTop: "min(55vh, 550px)", logoLeft: "auto" }
+    { url: "images/other/back01.png",  logoTop: "min(55vh, 550px)", logoLeft: "auto", logoWidth: "min(500px, 92vw)"},
+    { url: "images/other/back03.png", logoTop: "min(52vh, 520px)", logoLeft: "500px", logoWidth: "min(500px, 92vw)"}, // 左寄せ
+    { url: "images/other/back02.png", logoTop: "min(55vh, 550px)", logoLeft: "auto", logoWidth: "min(460px, 85vw)"},
   ];
 
   let currentHeroIndex = 0;
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 変更前: mainLogoContainer.style.marginTop = firstBg.logoTop;
     // 変更後: CSS変数に値をセットする
     mainLogoContainer.style.setProperty('--dynamic-mt', firstBg.logoTop);
-    
+    mainLogo.style.width = firstBg.logoWidth;
     mainLogoContainer.style.alignItems = (firstBg.logoLeft === "auto") ? "center" : "flex-start";
     mainLogoContainer.style.paddingLeft = (firstBg.logoLeft === "auto") ? "0" : firstBg.logoLeft;
     
@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // 変更前: mainLogoContainer.style.marginTop = nextBg.logoTop;
       // 変更後: CSS変数に値をセットする
       mainLogoContainer.style.setProperty('--dynamic-mt', nextBg.logoTop);
+
+      mainLogo.style.width = nextBg.logoWidth;
       
       mainLogoContainer.style.alignItems = (nextBg.logoLeft === "auto") ? "center" : "flex-start";
       mainLogoContainer.style.paddingLeft = (nextBg.logoLeft === "auto") ? "0" : nextBg.logoLeft;

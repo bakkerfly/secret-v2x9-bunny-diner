@@ -62,7 +62,10 @@ section {
     /* 高さを100vhに固定して、中身の動きでセクションが伸び縮みしないようにする */
     height: 100svh; 
     min-height: 100svh;
-    background: url(images/other/back.png) center/cover no-repeat;
+    background-image: url(images/other/back01.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 58%;
     display: flex;
     flex-direction: column; /* 縦並びに固定 */
     align-items: center;
