@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },  
     {
       name: "うましかちょう",
-      color: "#ec1c00",
+      color: "#7ac6e9",
       desc: "自分で紹介文を書くのは勘弁してください",
       bust: "images/characters/bakkerfly_bust.png",
       full: "images/characters/bakkerfly_full.png"
